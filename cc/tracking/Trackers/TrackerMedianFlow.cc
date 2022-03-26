@@ -24,7 +24,7 @@ NAN_METHOD(TrackerMedianFlow::New) {
 	FF_ASSERT_CONSTRUCT_CALL();
 
 	TrackerMedianFlow* self = new TrackerMedianFlow();
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	cv::legacy::TrackerMedianFlow::Params params;
 #else
 	cv::TrackerMedianFlow::Params params;
@@ -33,7 +33,7 @@ NAN_METHOD(TrackerMedianFlow::New) {
 		params.pointsInGrid = info[0]->ToInt32(Nan::GetCurrentContext()).ToLocalChecked()->Value();
 	}
 
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	self->tracker = cv::legacy::TrackerMedianFlow::create(params);
 #elif CV_VERSION_GREATER_EQUAL(3, 3, 0)
 	self->tracker = cv::TrackerMedianFlow::create(params);

@@ -36,7 +36,7 @@ NAN_METHOD(MultiTracker::New) {
 	FF::TryCatch tryCatch("MultiTracker::New");
 	FF_ASSERT_CONSTRUCT_CALL();
 	MultiTracker* self = new MultiTracker();
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	self->setNativeObject(cv::makePtr<cv::legacy::MultiTracker>());
 #else
 	self->setNativeObject(cv::makePtr<cv::MultiTracker>());
@@ -55,7 +55,7 @@ NAN_METHOD(MultiTracker::AddMIL) {
 	) {
 		return tryCatch.reThrow();
 	}
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	cv::Ptr<cv::legacy::Tracker> type = cv::legacy::TrackerMIL::create();
 #elif CV_VERSION_GREATER_EQUAL(3, 3, 0)
 	cv::Ptr<cv::Tracker> type = cv::TrackerMIL::create();
@@ -76,7 +76,7 @@ NAN_METHOD(MultiTracker::AddBOOSTING) {
 		) {
 		return tryCatch.reThrow();
 	}
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	cv::Ptr<cv::legacy::Tracker> type = cv::legacy::TrackerBoosting::create();
 #elif CV_VERSION_GREATER_EQUAL(3, 3, 0)
 	cv::Ptr<cv::Tracker> type = cv::TrackerBoosting::create();
@@ -97,7 +97,7 @@ NAN_METHOD(MultiTracker::AddMEDIANFLOW) {
 		) {
 		return tryCatch.reThrow();
 	}
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	cv::Ptr<cv::legacy::Tracker> type = cv::legacy::TrackerMedianFlow::create();
 #elif CV_VERSION_GREATER_EQUAL(3, 3, 0)
 	cv::Ptr<cv::Tracker> type = cv::TrackerMedianFlow::create();
@@ -118,7 +118,7 @@ NAN_METHOD(MultiTracker::AddTLD) {
 		) {
 		return tryCatch.reThrow();
 	}
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	cv::Ptr<cv::legacy::Tracker> type = cv::legacy::TrackerTLD::create();
 #elif CV_VERSION_GREATER_EQUAL(3, 3, 0)
 	cv::Ptr<cv::Tracker> type = cv::TrackerTLD::create();
@@ -139,7 +139,7 @@ NAN_METHOD(MultiTracker::AddKCF) {
 		) {
 		return tryCatch.reThrow();
 	}
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	cv::Ptr<cv::legacy::Tracker> type = cv::legacy::TrackerKCF::create();
 #elif CV_VERSION_GREATER_EQUAL(3, 3, 0)
 	cv::Ptr<cv::Tracker> type = cv::TrackerKCF::create();
@@ -173,7 +173,7 @@ NAN_METHOD(MultiTracker::AddMOSSE) {
 		) {
 		return tryCatch.reThrow();
 	}
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	cv::Ptr<cv::legacy::Tracker> type = cv::legacy::TrackerMOSSE::create();
 #else
 	cv::Ptr<cv::Tracker> type = cv::TrackerMOSSE::create();
@@ -195,7 +195,7 @@ NAN_METHOD(MultiTracker::AddCSRT) {
 		) {
 		return tryCatch.reThrow();
 	}
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	cv::Ptr<cv::legacy::Tracker> type = cv::legacy::TrackerCSRT::create();
 #else
 	cv::Ptr<cv::Tracker> type = cv::TrackerCSRT::create();

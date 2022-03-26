@@ -5,7 +5,7 @@
 #ifndef __FF_TRACKERGOTURN_H__
 #define __FF_TRACKERGOTURN_H__
 
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 class TrackerGOTURN : public FF::ObjectWrapBase<TrackerGOTURN>, public Nan::ObjectWrap {
 #else
 class TrackerGOTURN : public Tracker {
@@ -15,7 +15,7 @@ public:
 
 	static NAN_MODULE_INIT(Init);
 	static NAN_METHOD(New);
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	static NAN_METHOD(Clear);
 	static NAN_METHOD(Init);
 	static NAN_METHOD(Update);

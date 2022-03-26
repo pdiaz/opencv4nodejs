@@ -5,7 +5,7 @@
 
 class TrackerBoosting : public Tracker {
 public:
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	cv::Ptr<cv::legacy::TrackerBoosting> tracker;
 #else
 	cv::Ptr<cv::TrackerBoosting> tracker;
@@ -16,7 +16,7 @@ public:
 
 	static Nan::Persistent<v8::FunctionTemplate> constructor;
 
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	cv::Ptr<cv::legacy::Tracker> getTracker() {
 #else
 	cv::Ptr<cv::Tracker> getTracker() {

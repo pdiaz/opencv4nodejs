@@ -28,7 +28,7 @@ NAN_METHOD(TrackerCSRT::New) {
 	FF::TryCatch tryCatch("TrackerCSRT::New");
 	FF_ASSERT_CONSTRUCT_CALL();
 
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	cv::legacy::TrackerCSRT::Params params;
 #else
 	cv::TrackerCSRT::Params params;
@@ -38,7 +38,7 @@ NAN_METHOD(TrackerCSRT::New) {
 	}
 
 	TrackerCSRT* self = new TrackerCSRT();
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	self->tracker = cv::legacy::TrackerCSRT::create(params);
 #else
 	self->tracker = cv::TrackerCSRT::create(params);

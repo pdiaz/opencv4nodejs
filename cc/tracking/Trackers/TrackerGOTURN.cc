@@ -8,7 +8,7 @@
 
 Nan::Persistent<v8::FunctionTemplate> TrackerGOTURN::constructor;
 
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 
 NAN_METHOD(TrackerGOTURN::Clear) {
 }
@@ -61,7 +61,7 @@ NAN_MODULE_INIT(TrackerGOTURN::Init) {
 	v8::Local<v8::FunctionTemplate> ctor = Nan::New<v8::FunctionTemplate>(TrackerGOTURN::New);
 	v8::Local<v8::ObjectTemplate> instanceTemplate = ctor->InstanceTemplate();
 
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	Nan::SetPrototypeMethod(ctor, "clear", TrackerGOTURN::Clear);
 	Nan::SetPrototypeMethod(ctor, "init", TrackerGOTURN::Init);
 	Nan::SetPrototypeMethod(ctor, "update", TrackerGOTURN::Update);

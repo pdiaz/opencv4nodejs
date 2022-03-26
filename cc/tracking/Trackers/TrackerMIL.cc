@@ -26,7 +26,7 @@ NAN_METHOD(TrackerMIL::New) {
 	FF::TryCatch tryCatch("TrackerMIL::New");
 	FF_ASSERT_CONSTRUCT_CALL();
 
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	cv::legacy::TrackerMIL::Params params;
 #else
 	cv::TrackerMIL::Params params;
@@ -36,7 +36,7 @@ NAN_METHOD(TrackerMIL::New) {
 	}
 
 	TrackerMIL* self = new TrackerMIL();
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	self->tracker = cv::legacy::TrackerMIL::create(params);
 #elif CV_VERSION_GREATER_EQUAL(3, 3, 0)
 	self->tracker = cv::TrackerMIL::create(params);

@@ -28,7 +28,7 @@ NAN_METHOD(TrackerKCF::New) {
 	FF::TryCatch tryCatch("TrackerKCF::New");
 	FF_ASSERT_CONSTRUCT_CALL();
 
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	cv::legacy::TrackerKCF::Params params;
 #else
 	cv::TrackerKCF::Params params;
@@ -38,7 +38,7 @@ NAN_METHOD(TrackerKCF::New) {
 	}
 
 	TrackerKCF* self = new TrackerKCF();
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	self->tracker = cv::legacy::TrackerKCF::create(params);
 #elif CV_VERSION_GREATER_EQUAL(3, 3, 0)
 	self->tracker = cv::TrackerKCF::create(params);

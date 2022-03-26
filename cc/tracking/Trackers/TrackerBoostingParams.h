@@ -1,13 +1,13 @@
 #include "macros.h"
 #include <opencv2/tracking.hpp>
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 #include <opencv2/tracking/tracking_legacy.hpp>
 #endif
 
 #ifndef __FF_TRACKERBOOSTINGPARAMS_H__
 #define __FF_TRACKERBOOSTINGPARAMS_H__
 
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 class TrackerBoostingParams : public FF::ObjectWrap<TrackerBoostingParams, cv::legacy::TrackerBoosting::Params> {
 #else
 class TrackerBoostingParams : public FF::ObjectWrap<TrackerBoostingParams, cv::TrackerBoosting::Params> {

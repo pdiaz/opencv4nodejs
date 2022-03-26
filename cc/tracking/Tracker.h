@@ -1,6 +1,6 @@
 #include "macros.h"
 #include <opencv2/tracking.hpp>
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 #include <opencv2/tracking/tracking_legacy.hpp>
 #endif
 #include "Mat.h"
@@ -11,7 +11,7 @@
 
 class Tracker : public FF::ObjectWrapBase<Tracker>, public Nan::ObjectWrap {
 public:
-#if CV_VERSION_GREATER_EQUAL(4, 5, 2)
+#if CV_VERSION_GREATER_EQUAL(4, 5, 1)
 	virtual cv::Ptr<cv::legacy::Tracker> getTracker() = 0;
 #else
 	virtual cv::Ptr<cv::Tracker> getTracker() = 0;
