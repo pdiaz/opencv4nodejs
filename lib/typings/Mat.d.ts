@@ -26,11 +26,7 @@ export class Mat {
   constructor(rows: number, cols: number, type: number);
   constructor(rows: number, cols: number, type: number, fillValue: number);
   constructor(rows: number, cols: number, type: number, fillValue: number[]);
-  constructor(rows: number, cols: number, type: number, fillValue: number[]);
-  constructor(rows: number, cols: number, type: number, fillValue: number[]);
   constructor(dataArray: number[][], type: number);
-  constructor(dataArray: number[][][], type: number);
-  constructor(dataArray: number[][][], type: number);
   constructor(dataArray: number[][][], type: number);
   constructor(data: Buffer, rows: number, cols: number, type?: number);
   abs(): Mat;
@@ -38,7 +34,7 @@ export class Mat {
   accumulate(src: Mat, mask?: Mat): Mat;
   accumulateAsync(src: Mat, mask?: Mat): Promise<Mat>;
   accumulateProduct(src1: Mat, src2: Mat, mask?: Mat): Mat;
-  accumulateProductAsync(src1: Mat, src2:Mat, mask?: Mat): Promise<Mat>;
+  accumulateProductAsync(src1: Mat, src2: Mat, mask?: Mat): Promise<Mat>;
   accumulateSquare(src: Mat, mask?: Mat): Mat;
   accumulateSquareAsync(src: Mat, mask?: Mat): Promise<Mat>;
   accumulateWeighted(src: Mat, alpha: number, mask?: Mat): Mat;
@@ -58,8 +54,6 @@ export class Mat {
   at(idx: number[]): Vec3;
   at(idx: number[]): Vec4;
   atRaw(row: number, col: number): number;
-  atRaw(row: number, col: number): number[];
-  atRaw(row: number, col: number): number[];
   atRaw(row: number, col: number): number[];
   bgrToGray(): Mat;
   bgrToGrayAsync(): Promise<Mat>;
@@ -132,7 +126,8 @@ export class Mat {
   drawChessboardCorners(patternSize: Size, corners: Point2[], patternWasFound: boolean): void;
   drawChessboardCornersAsync(patternSize: Size, corners: Point2[], patternWasFound: boolean): Promise<void>;
   drawCircle(center: Point2, radius: number, color?: Vec3, thickness?: number, lineType?: number, shift?: number): void;
-  drawContours(contours: Contour[], color: Vec3, contourIdx?: number, maxLevel?: number, offset?: Point2, lineType?: number, thickness?: number, shift?: number): void;
+  drawContours(contours: Point2[][], contourIdx: number, color: Vec3, thickness?: number, lineType?: number, hierarchy?: Vec4[], maxLevel?: number, offset?: Point2): void;
+  drawContoursAsync(contours: Point2[][], contourIdx: number, color: Vec3, thickness?: number, lineType?: number, hierarchy?: Vec4[], maxLevel?: number, offset?: Point2): Promise<void>;
   drawEllipse(box: RotatedRect, color?: Vec3, thickness?: number, lineType?: number): void;
   drawEllipse(center: Point2, axes: Size, angle: number, startAngle: number, endAngle: number, color?: Vec3, thickness?: number, lineType?: number, shift?: number): void;
   drawFillConvexPoly(pts: Point2[], color?: Vec3, lineType?: number, shift?: number): void;
@@ -176,8 +171,6 @@ export class Mat {
   getDataAsync(): Promise<Buffer>;
   getDataAsArray(): number[][];
   getDataAsArray(): number[][][];
-  getDataAsArray(): number[][][];
-  getDataAsArray(): number[][][];
   getOptimalNewCameraMatrix(distCoeffs: number[], imageSize: Size, alpha: number, newImageSize?: Size, centerPrincipalPoint?: boolean): { out: Mat, validPixROI: Rect };
   getOptimalNewCameraMatrixAsync(distCoeffs: number[], imageSize: Size, alpha: number, newImageSize?: Size, centerPrincipalPoint?: boolean): Promise<{ out: Mat, validPixROI: Rect }>;
   getRegion(region: Rect): Mat;
@@ -214,7 +207,7 @@ export class Mat {
   matchTemplate(template: Mat, method: number, mask?: Mat): Mat;
   matchTemplateAsync(template: Mat, method: number, mask?: Mat): Promise<Mat>;
   mean(): Vec4;
-  meanAsync():  Promise<Vec4>;
+  meanAsync(): Promise<Vec4>;
   meanStdDev(mask?: Mat): { mean: Mat, stddev: Mat };
   meanStdDevAsync(mask?: Mat): Promise<{ mean: Mat, stddev: Mat }>;
   medianBlur(kSize: number): Mat;
@@ -279,8 +272,6 @@ export class Mat {
   sepFilter2D(ddepth: number, kernelX: Mat, kernelY: Mat, anchor?: Point2, delta?: number, borderType?: number): Mat;
   sepFilter2DAsync(ddepth: number, kernelX: Mat, kernelY: Mat, anchor?: Point2, delta?: number, borderType?: number): Promise<Mat>;
   set(row: number, col: number, value: number): void;
-  set(row: number, col: number, value: number[]): void;
-  set(row: number, col: number, value: number[]): void;
   set(row: number, col: number, value: number[]): void;
   set(row: number, col: number, value: Vec2): void;
   set(row: number, col: number, value: Vec3): void;
